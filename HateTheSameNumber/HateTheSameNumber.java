@@ -1,7 +1,12 @@
+package HateTheSameNumber;
 import java.util.*;
 
 public class HateTheSameNumber {
-	public int[] solution(int []arr) {
+	public static void main(String[] args) {
+		int[] number = { 1, 3, 3, 4, 5, 1};
+		solution(number);
+	}
+	public static int[] solution(int []arr) {
         ArrayList<Integer> answer_tmp = new ArrayList<>();
 	        int i=1;
 	        int tmp;
