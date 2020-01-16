@@ -50,7 +50,7 @@ public class joystick {
 	            answer += count1;
 	        }
 	        
-	        
+	        System.out.println(answer);
 	        return answer;
 	  }
 
