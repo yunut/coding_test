@@ -8,24 +8,33 @@ public class CaesarPassword {
 	}
 	
 	public static String solution(String s, int n) {
-	      String answer = "";
+		  String answer = "";
 	      StringBuilder str = new StringBuilder();
 	      str.append(s);
-	      
+
 	      for(int i=0;i<str.length();i++) {
-	    	  if((str.charAt(i) != 32)) {
-	    		  str.replace(i,i+1,Character.toString((char) (str.charAt(i) + n)));
-	    	  }
-	    	  if(str.charAt(i) > 90) {
-	    		  str.replace(i,i+1,Character.toString((char) (str.charAt(i) - 25)));
-	    	  }
-	    	  if(str.charAt(i) > 122) {
-	    		  str.replace(i,i+1,Character.toString((char) (str.charAt(i) - 25)));
-	    	  }
+	          char tmp = str.charAt(i);
+	          //소문자일때
+	          if((tmp != 32) && Character.isLowerCase(tmp)) {
+	              str.replace(i,i+1,Character.toString((char) (str.charAt(i) + n)));
+	              if(str.charAt(i) > 122) {
+		              str.replace(i,i+1,Character.toString((char) (str.charAt(i) - 26)));
+		          }
+	          }
+	          
+	          
+	          //대문자일때
+	          if((tmp != 32) && Character.isUpperCase(tmp)) {
+	              str.replace(i,i+1,Character.toString((char) (str.charAt(i) + n)));
+	              if(str.charAt(i) > 90) {
+		              str.replace(i,i+1,Character.toString((char) (str.charAt(i) - 26)));
+		          }
+	          }
+	          
 	      }
-	      
+
 	      for(int i=0;i<str.length();i++) {
-	    	  answer = str.toString();
+	          answer = str.toString();
 	      }
 	      return answer;
 	  }
