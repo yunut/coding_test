@@ -33,6 +33,7 @@ public class SkillTree {
             }
         }
         
+        Character.toString(c)
         return answer;
     }
 
