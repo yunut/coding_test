@@ -17,44 +17,32 @@ public class primeNumberMade {
         answer = 0;
         int target=0;
         
-        for(int i=0;i<nums.length;i++) {
-            dfs(nums,0,0,i);
-        }
-        
         arr = new ArrayList<>();
         
-        for(int i=2;i<=1500;i++) {
+        for(int i=2;i<=3000;i++) {
             arr.add(i);
         }
         
         for(int i=2;i<=1500;i++) {
             for(int ii=0;ii<arr.size();ii++) {
                 if(arr.get(ii) != i && arr.get(ii) % i == 0) {
-                    arr.set(ii,0);
+                    arr.remove(ii);
                 }
             }
         }
+        
+        for(int i=0;i<nums.length-2;i++) {
+            for(int ii=i+1;ii<nums.length-1;ii++) {
+                for(int iii=ii+1;iii<nums.length;iii++) {
+                    int check = nums[i] + nums[ii] + nums[iii];
+                    if(arr.contains(check)) {
+                        answer++;
+                    }
+                }
+            }
+        }
+        
         return answer;
-    }
-	
-	public static void dfs(int[] nums,int sum,int count,int index) {
-        if(count == 3) {
-        	if(arr.contains(sum)) {
-        		answer++;
-        	}
-            return;
-        }
-        
-        if(index >= nums.length) {
-        	return;
-        }
-        
-        sum+=nums[index];
-        
-        for(int i=index+1;i<=nums.length;i++) {
-            dfs(nums,sum,count+1,i);
-        }
-        
     }
 
 }
