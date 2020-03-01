@@ -20,7 +20,6 @@ public class NextBigNumber {
 	          answer++;
 	          
 	      } 
-	      System.out.println(answer);
 	      return answer;
 	  }
 
