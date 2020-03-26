@@ -5,24 +5,27 @@ import java.util.*;
 public class ErrorTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		int T;
-		T=Integer.parseInt(sc.nextLine());
-		
-		for(int test_case = 1; test_case <= T; test_case++)
-		{
-			int N = Integer.parseInt(sc.nextLine());
-            int num=0;
-            String question = sc.nextLine();
-            String answer = sc.nextLine();
-            
-            for(int i=0;i<question.length();i++) {
-            	if(question.charAt(i) == answer.charAt(i)) num++;
+		 Scanner sc = new Scanner(System.in);
+	        String target = sc.nextLine();
+	        int answer = Integer.parseInt(target);
+	        int min_answer = 0;
+        while(true) {
+        	int tmp = answer;
+        	String t = Integer.toString(answer);
+            for(int i=0;i<t.length();i++) {
+                tmp += Integer.parseInt(t.substring(i,i+1));
             }
-            System.out.println("#" + test_case + " " + num);
-
-		}
+            if(tmp == Integer.parseInt(target)) {
+            	min_answer=answer;
+            }
+            answer--;
+            if(answer == 0) {
+            	break;
+            }
+            
+            
+        }
+        System.out.println(min_answer);
 	}
 	
 	
