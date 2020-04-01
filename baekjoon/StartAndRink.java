@@ -37,6 +37,7 @@ public class StartAndRink {
 				}
 			}
 			if(Math.abs(startNum-rinkNum) < answer) answer = Math.abs(startNum-rinkNum);
+			return;
 		}
 		
 		for(int i=0;i<N;i++) {
