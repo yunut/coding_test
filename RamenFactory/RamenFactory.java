@@ -37,15 +37,11 @@ public class RamenFactory {
         			index++;
         		} else break;
         	}
-        	if(!ramen.isEmpty()) {
-                while(ramen.peek().getDate() < stock) {
-        		ramen.poll();
-        	    }
-            }
         	stock -= ramen.peek().getDate();
         	totalMil += ramen.peek().getDate();
-        	stock += ramen.poll().getSupplies();
+        	stock += ramen.peek().getSupplies();
         	answer++;
+        	while(ramen.peek().getDate())
         	
         }
         
@@ -55,12 +51,18 @@ public class RamenFactory {
 }
 
 class Ramen {
+	private int index;
     private int date;
     private int supplies;
     
     public Ramen(int date, int supplies) {
+    	this.index = index;
         this.date = date;
         this.supplies = supplies;
+    }
+    
+    public int getIndex() {
+    	return index;
     }
     
     public int getDate() {
