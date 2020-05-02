@@ -41,7 +41,6 @@ public class RamenFactory {
         	totalMil += ramen.peek().getDate();
         	stock += ramen.peek().getSupplies();
         	answer++;
-        	while(ramen.peek().getDate())
         	
         }
         
